@@ -15,8 +15,8 @@ const AboutSection: React.FC = () => {
             Why Choose Tris?
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            We've been helping performance marketers scale their businesses with high-converting 
-            browser extensions and antivirus software since 2020.
+                          We've been helping performance marketers scale their businesses with high-converting 
+              browser extensions and antivirus software since 2005.
           </p>
         </motion.div>
 

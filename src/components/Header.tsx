@@ -29,9 +29,6 @@ const Header: React.FC = () => {
                 <a href="#products" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors">
                   Products
                 </a>
-                <a href="#support" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors">
-                  Support
-                </a>
                 <a href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors">
                   Contact
                 </a>
@@ -78,9 +75,6 @@ const Header: React.FC = () => {
               <a href="#products" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 block px-3 py-2 text-base font-medium">
                 Products
               </a>
-              <a href="#support" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 block px-3 py-2 text-base font-medium">
-                Support
-              </a>
               <a href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 block px-3 py-2 text-base font-medium">
                 Contact
               </a>
@@ -117,7 +111,7 @@ const Header: React.FC = () => {
             
             <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6 mb-8" style={{ backgroundColor: '#eff6ff' }}>
               <p className="text-blue-800 dark:text-blue-200 font-semibold">
-                Up to 30¢/user/day • Weekly new creatives • Tier 1 GEO tested
+                Up to 36¢/user/day • Weekly new creatives • Tier 1 GEO tested
               </p>
             </div>
             

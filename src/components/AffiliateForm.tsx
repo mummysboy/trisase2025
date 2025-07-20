@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 
 interface FormData {
   fullName: string;
@@ -57,34 +58,100 @@ const AffiliateForm: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Google Forms integration
-    // Replace this URL with your actual Google Form URL
-    // const googleFormUrl = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse';
+    // For local testing - set this to true to use mock data
+    const USE_MOCK = false;
     
-    // const formDataToSend = new FormData();
-    // formDataToSend.append('entry.123456789', formData.fullName); // Replace with actual entry IDs
-    // formDataToSend.append('entry.987654321', formData.email);
-    // formDataToSend.append('entry.111111111', formData.companyName);
-    // formDataToSend.append('entry.222222222', formData.contact);
-    // formDataToSend.append('entry.333333333', formData.website);
-    // formDataToSend.append('entry.444444444', formData.trafficTypes.join(', '));
-    // formDataToSend.append('entry.555555555', formData.dailyVolume);
+    // EmailJS configuration
+    const EMAILJS_SERVICE_ID = 'service_6d0a40f';
+    const EMAILJS_TEMPLATE_ID = 'template_6mjrs5y';
+    const EMAILJS_PUBLIC_KEY = 'y6p_Dcjgxlfkzbwio';
 
     try {
-      // For demo purposes, we'll simulate a successful submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      console.log('USE_MOCK value:', USE_MOCK);
       
-      alert('Thank you for your application! We\'ll get back to you soon.');
-      setFormData({
-        fullName: '',
-        email: '',
-        companyName: '',
-        contact: '',
-        website: '',
-        trafficTypes: [],
-        dailyVolume: '',
-      });
+      if (USE_MOCK) {
+        // Mock response for local testing
+        console.log('Form data being submitted:', formData);
+        
+        // Simulate API delay
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        // Simulate successful response
+        const mockResponse = { data: { success: true, message: 'Data submitted successfully' } };
+        
+        if (mockResponse.data.success) {
+          alert('Thank you for your application! We\'ll get back to you soon.');
+          console.log('Mock submission successful:', formData);
+          setFormData({
+            fullName: '',
+            email: '',
+            companyName: '',
+            contact: '',
+            website: '',
+            trafficTypes: [],
+            dailyVolume: '',
+          });
+        }
+      } else {
+        console.log('Attempting email notification submission...');
+        // Email notification using EmailJS
+        try {
+          const templateParams = {
+            to_email: 'demo@tris.com',
+            to_name: 'Demo',
+            from_name: formData.fullName,
+            from_email: formData.email,
+            company_name: formData.companyName,
+            contact_info: formData.contact,
+            website: formData.website || 'Not provided',
+            traffic_types: formData.trafficTypes.join(', '),
+            daily_volume: formData.dailyVolume,
+            submission_date: new Date().toLocaleString(),
+            message: `
+New affiliate application received:
+
+Full Name: ${formData.fullName}
+Email: ${formData.email}
+Company Name: ${formData.companyName}
+Contact (Telegram/Skype): ${formData.contact}
+Website: ${formData.website || 'Not provided'}
+Traffic Types: ${formData.trafficTypes.join(', ')}
+Daily Volume: ${formData.dailyVolume}
+
+Submitted on: ${new Date().toLocaleString()}
+            `.trim()
+          };
+
+          const response = await emailjs.send(
+            EMAILJS_SERVICE_ID,
+            EMAILJS_TEMPLATE_ID,
+            templateParams,
+            EMAILJS_PUBLIC_KEY
+          );
+
+          if (response.status === 200) {
+            console.log('Email notification sent successfully');
+            alert('Thank you for your application! We\'ll get back to you soon.');
+            setFormData({
+              fullName: '',
+              email: '',
+              companyName: '',
+              contact: '',
+              website: '',
+              trafficTypes: [],
+              dailyVolume: '',
+            });
+          } else {
+            throw new Error('Failed to send email notification');
+          }
+          
+        } catch (error) {
+          console.error('Email submission error:', error);
+          alert('There was an error submitting your application. Please try again.');
+        }
+      }
     } catch (error) {
+      console.error('Submission error:', error);
       alert('There was an error submitting your application. Please try again.');
     } finally {
       setIsSubmitting(false);
@@ -163,7 +230,7 @@ const AffiliateForm: React.FC = () => {
 
             <div>
               <label htmlFor="contact" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Telegram/Skype *
+                Telegram/Teams *
               </label>
               <input
                 type="text"
@@ -181,11 +248,12 @@ const AffiliateForm: React.FC = () => {
                 Website (Optional)
               </label>
               <input
-                type="url"
+                type="text"
                 id="website"
                 name="website"
                 value={formData.website}
                 onChange={handleInputChange}
+                placeholder="Enter your website URL"
                 className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
@@ -203,11 +271,11 @@ const AffiliateForm: React.FC = () => {
                 className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 <option value="">Select volume range</option>
-                <option value="1-100">1-100 clicks/day</option>
-                <option value="100-500">100-500 clicks/day</option>
-                <option value="500-1000">500-1,000 clicks/day</option>
-                <option value="1000-5000">1,000-5,000 clicks/day</option>
-                <option value="5000+">5,000+ clicks/day</option>
+                <option value="1-100">1-100 installs/day</option>
+                <option value="100-500">100-500 installs/day</option>
+                <option value="500-1000">500-1,000 installs/day</option>
+                <option value="1000-5000">1,000-5,000 installs/day</option>
+                <option value="5000+">5,000+ installs/day</option>
               </select>
             </div>
           </div>
