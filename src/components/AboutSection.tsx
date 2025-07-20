@@ -1,14 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const AboutSection: React.FC = () => {
+  const [headerRef, headerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [featuresRef, featuresInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [tierRef, tierInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+
   return (
     <section id="about" className="py-16 px-4 bg-white dark:bg-neutral-950" style={{ backgroundColor: '#ffffff' }}>
       <div className="max-w-6xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          ref={headerRef}
+          initial={{ opacity: 0, y: 50 }}
+          animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -20,11 +26,11 @@ const AboutSection: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div ref={featuresRef} className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            initial={{ opacity: 0, x: -50 }}
+            animate={featuresInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
             className="text-center"
           >
             <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/20 rounded-full mx-auto mb-4 flex items-center justify-center">
@@ -41,9 +47,9 @@ const AboutSection: React.FC = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, y: -50 }}
+            animate={featuresInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="text-center"
           >
             <div className="w-16 h-16 bg-green-100 dark:bg-green-900/20 rounded-full mx-auto mb-4 flex items-center justify-center">
@@ -60,9 +66,9 @@ const AboutSection: React.FC = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            initial={{ opacity: 0, x: 50 }}
+            animate={featuresInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             className="text-center"
           >
             <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/20 rounded-full mx-auto mb-4 flex items-center justify-center">
@@ -79,9 +85,9 @@ const AboutSection: React.FC = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={featuresInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             className="text-center"
           >
             <div className="w-16 h-16 bg-yellow-100 dark:bg-yellow-900/20 rounded-full mx-auto mb-4 flex items-center justify-center">
@@ -99,9 +105,10 @@ const AboutSection: React.FC = () => {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          ref={tierRef}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={tierInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="mt-12 bg-gray-50 dark:bg-neutral-900 rounded-xl p-8" style={{ backgroundColor: '#f9fafb' }}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">

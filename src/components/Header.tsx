@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Logo from './Logo';
+import { useInView } from 'react-intersection-observer';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const scrollToForm = () => {
     document.getElementById('affiliate-form')?.scrollIntoView({ behavior: 'smooth' });
@@ -95,11 +97,11 @@ const Header: React.FC = () => {
 
       {/* Hero Section */}
       <header className="bg-white dark:bg-neutral-950 py-16 px-4" style={{ backgroundColor: '#ffffff' }}>
-        <div className="max-w-4xl mx-auto text-center">
+        <div ref={heroRef} className="max-w-4xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 100 }}
+            animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
               Smarter Monetization Starts with Tris

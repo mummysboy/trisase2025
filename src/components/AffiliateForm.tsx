@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+import { useInView } from 'react-intersection-observer';
 
 interface FormData {
   fullName: string;
@@ -13,6 +14,9 @@ interface FormData {
 }
 
 const AffiliateForm: React.FC = () => {
+  const [formRef, formInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [headerRef, headerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  
   const [formData, setFormData] = useState<FormData>({
     fullName: '',
     email: '',
@@ -162,9 +166,10 @@ Submitted on: ${new Date().toLocaleString()}
     <section id="affiliate-form" className="py-16 px-4 bg-gray-100 dark:bg-neutral-900" style={{ backgroundColor: '#f3f4f6' }}>
       <div className="max-w-4xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          ref={headerRef}
+          initial={{ opacity: 0, y: 50 }}
+          animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -182,9 +187,10 @@ Submitted on: ${new Date().toLocaleString()}
         </motion.div>
 
         <motion.form
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          ref={formRef}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={formInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           onSubmit={handleSubmit}
           className="bg-white dark:bg-neutral-800 rounded-xl shadow-lg p-8" style={{ backgroundColor: '#ffffff' }}
         >
