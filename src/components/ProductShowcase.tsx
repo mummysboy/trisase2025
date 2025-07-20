@@ -78,8 +78,8 @@ const ProductShowcase: React.FC = () => {
                 </p>
                 
                 <div className="flex items-center justify-center mb-4">
-                  <span className="text-green-600 dark:text-green-400 text-sm font-medium">
-                    🎁 $5 Gift Card on Install
+                  <span className="text-gray-600 dark:text-gray-400 text-sm font-medium">
+                    $5 Gift Card on Install
                   </span>
                 </div>
                 

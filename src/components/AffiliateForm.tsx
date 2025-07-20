@@ -175,8 +175,8 @@ Submitted on: ${new Date().toLocaleString()}
           </p>
           
           <div className="text-center mb-8">
-            <span className="text-green-600 dark:text-green-400 font-medium">
-              🎁 Users receive a $5 gift card when they install our extension or software
+            <span className="text-gray-600 dark:text-gray-400 font-medium">
+              Users receive a $5 gift card when they install our extension or software
             </span>
           </div>
         </motion.div>
