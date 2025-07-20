@@ -77,12 +77,10 @@ const ProductShowcase: React.FC = () => {
                   {product.description}
                 </p>
                 
-                <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-3 mb-4 border border-yellow-200 dark:border-yellow-800">
-                  <div className="flex items-center justify-center">
-                    <span className="text-yellow-800 dark:text-yellow-200 font-semibold text-sm">
-                      🎁 $5 Gift Card on Install
-                    </span>
-                  </div>
+                <div className="flex items-center justify-center mb-4">
+                  <span className="text-green-600 dark:text-green-400 text-sm font-medium">
+                    🎁 $5 Gift Card on Install
+                  </span>
                 </div>
                 
                 <a
