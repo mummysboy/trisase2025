@@ -44,7 +44,7 @@ const ProductShowcase: React.FC = () => {
             Our High-Performing Products
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            Proven extensions and software with excellent retention rates
+            Proven extensions and software with excellent retention rates. Users receive a $5 gift card upon installation.
           </p>
         </motion.div>
 

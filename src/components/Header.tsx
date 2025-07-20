@@ -111,7 +111,7 @@ const Header: React.FC = () => {
             
             <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6 mb-8" style={{ backgroundColor: '#eff6ff' }}>
               <p className="text-blue-800 dark:text-blue-200 font-semibold">
-                Up to 36¢/user/day • Weekly new creatives • Tier 1 GEO tested
+                Up to 36¢/user/day • Weekly new creatives • Tier 1 GEO tested • $5 gift card incentive
               </p>
             </div>
             
