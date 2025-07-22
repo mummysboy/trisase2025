@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="mb-4">
-              <Logo size="lg" variant="white" customSize="w-32 h-12" />
+              <Logo size="lg" customSize="w-32 h-12" variant="default" />
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
               Helping performance marketers scale with high-retention browser extensions and antivirus software since 2005. 
