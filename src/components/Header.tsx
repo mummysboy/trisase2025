@@ -14,7 +14,7 @@ const Header: React.FC = () => {
   return (
     <>
       {/* Navigation Header */}
-      <nav className="bg-white dark:bg-neutral-950 shadow-sm border-b border-gray-200 dark:border-gray-800" style={{ backgroundColor: '#ffffff' }}>
+      <nav className="bg-white shadow-sm border-b border-gray-200" style={{ backgroundColor: '#ffffff' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
@@ -25,13 +25,13 @@ const Header: React.FC = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
-                <a href="#about" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors">
+                <a href="#about" className="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
                   About Us
                 </a>
-                <a href="#products" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors">
+                <a href="#products" className="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
                   Products
                 </a>
-                <a href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors">
+                <a href="#contact" className="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
                   Contact
                 </a>
               </div>
@@ -53,7 +53,7 @@ const Header: React.FC = () => {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none focus:text-blue-600 dark:focus:text-blue-400"
+                className="text-gray-600 hover:text-blue-600 focus:outline-none focus:text-blue-600"
               >
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   {isMenuOpen ? (
@@ -70,14 +70,14 @@ const Header: React.FC = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-neutral-950 border-t border-gray-200 dark:border-gray-800">
-              <a href="#about" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 block px-3 py-2 text-base font-medium">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
+              <a href="#about" className="text-gray-600 hover:text-blue-600 block px-3 py-2 text-base font-medium">
                 About Us
               </a>
-              <a href="#products" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 block px-3 py-2 text-base font-medium">
+              <a href="#products" className="text-gray-600 hover:text-blue-600 block px-3 py-2 text-base font-medium">
                 Products
               </a>
-              <a href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 block px-3 py-2 text-base font-medium">
+              <a href="#contact" className="text-gray-600 hover:text-blue-600 block px-3 py-2 text-base font-medium">
                 Contact
               </a>
               <div className="pt-4">
@@ -96,23 +96,23 @@ const Header: React.FC = () => {
       </nav>
 
       {/* Hero Section */}
-      <header className="bg-white dark:bg-neutral-950 py-16 px-4" style={{ backgroundColor: '#ffffff' }}>
+      <header className="bg-white py-16 px-4" style={{ backgroundColor: '#ffffff' }}>
         <div ref={heroRef} className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 100 }}
             animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Smarter Monetization Starts with Tris
             </h1>
             
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
               Tris helps performance marketers scale with high-retention browser extensions and antivirus software.
             </p>
             
-            <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6 mb-8" style={{ backgroundColor: '#eff6ff' }}>
-              <p className="text-blue-800 dark:text-blue-200 font-semibold">
+            <div className="bg-blue-50 rounded-lg p-6 mb-8" style={{ backgroundColor: '#eff6ff' }}>
+              <p className="text-blue-800 font-semibold">
                 Up to 36¢/user/day • Weekly new creatives • Tier 1 GEO tested • $5 gift card incentive
               </p>
             </div>

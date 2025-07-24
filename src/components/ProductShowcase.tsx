@@ -36,7 +36,7 @@ const ProductShowcase: React.FC = () => {
   const [productsRef, productsInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section id="products" className="py-16 px-4 bg-gray-50 dark:bg-neutral-900" style={{ backgroundColor: '#f9fafb' }}>
+    <section id="products" className="py-16 px-4 bg-gray-50" style={{ backgroundColor: '#f9fafb' }}>
       <div className="max-w-6xl mx-auto">
         <motion.div
           ref={headerRef}
@@ -45,10 +45,10 @@ const ProductShowcase: React.FC = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Our High-Performing Products
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
+          <p className="text-lg text-gray-600">
             Proven extensions and software with excellent retention rates. Users receive a $5 gift card upon installation.
           </p>
         </motion.div>
@@ -64,26 +64,26 @@ const ProductShowcase: React.FC = () => {
               style={{ backgroundColor: '#ffffff' }}
             >
               <div className="text-center">
-                <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/20 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                <div className="w-16 h-16 bg-blue-100 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-blue-600">
                     {product.name.charAt(0)}
                   </span>
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
                   {product.name}
                 </h3>
                 
-                <p className="text-green-600 dark:text-green-400 font-semibold mb-3">
+                <p className="text-green-600 font-semibold mb-3">
                   {product.epc}
                 </p>
                 
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                <p className="text-gray-600 mb-4">
                   {product.description}
                 </p>
                 
                 <div className="flex items-center justify-center mb-4">
-                  <span className="text-gray-600 dark:text-gray-400 text-sm font-medium">
+                  <span className="text-gray-600 text-sm font-medium">
                     $5 Gift Card on Install
                   </span>
                 </div>

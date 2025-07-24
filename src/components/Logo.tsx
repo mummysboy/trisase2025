@@ -34,7 +34,7 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', showText = true, className = '
         className={`${finalSizeClass} object-contain`}
       />
       {showText && (
-        <span className={`font-bold text-gray-900 dark:text-white ${textSizes[size]} ml-2`}>
+        <span className={`font-bold text-gray-900 ${textSizes[size]} ml-2`}>
           Tris
         </span>
       )}

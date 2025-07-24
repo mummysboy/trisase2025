@@ -163,7 +163,7 @@ Submitted on: ${new Date().toLocaleString()}
   };
 
   return (
-    <section id="affiliate-form" className="py-16 px-4 bg-gray-100 dark:bg-neutral-900" style={{ backgroundColor: '#f3f4f6' }}>
+    <section id="affiliate-form" className="py-16 px-4 bg-gray-100" style={{ backgroundColor: '#f3f4f6' }}>
       <div className="max-w-4xl mx-auto">
         <motion.div
           ref={headerRef}
@@ -172,15 +172,15 @@ Submitted on: ${new Date().toLocaleString()}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Apply to Advertise These Offers
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
+          <p className="text-lg text-gray-600">
             Join our network of successful performance marketers
           </p>
           
           <div className="text-center mb-8">
-            <span className="text-gray-600 dark:text-gray-400 font-medium">
+            <span className="text-gray-600 font-medium">
               Users receive a $5 gift card when they install our extension or software
             </span>
           </div>
@@ -192,11 +192,11 @@ Submitted on: ${new Date().toLocaleString()}
           animate={formInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           onSubmit={handleSubmit}
-          className="bg-white dark:bg-neutral-800 rounded-xl shadow-lg p-8" style={{ backgroundColor: '#ffffff' }}
+          className="bg-white rounded-xl shadow-lg p-8" style={{ backgroundColor: '#ffffff' }}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
                 Full Name *
               </label>
               <input
@@ -211,7 +211,7 @@ Submitted on: ${new Date().toLocaleString()}
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                 Email *
               </label>
               <input
@@ -226,7 +226,7 @@ Submitted on: ${new Date().toLocaleString()}
             </div>
 
             <div>
-              <label htmlFor="companyName" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label htmlFor="companyName" className="block text-sm font-medium text-gray-700 mb-2">
                 Company Name *
               </label>
               <input
@@ -241,7 +241,7 @@ Submitted on: ${new Date().toLocaleString()}
             </div>
 
             <div>
-              <label htmlFor="contact" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label htmlFor="contact" className="block text-sm font-medium text-gray-700 mb-2">
                 Telegram/Teams *
               </label>
               <input
@@ -256,7 +256,7 @@ Submitted on: ${new Date().toLocaleString()}
             </div>
 
             <div>
-              <label htmlFor="website" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label htmlFor="website" className="block text-sm font-medium text-gray-700 mb-2">
                 Website (Optional)
               </label>
               <input
@@ -271,7 +271,7 @@ Submitted on: ${new Date().toLocaleString()}
             </div>
 
             <div>
-              <label htmlFor="dailyVolume" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label htmlFor="dailyVolume" className="block text-sm font-medium text-gray-700 mb-2">
                 Daily Volume Estimate *
               </label>
               <select
@@ -293,7 +293,7 @@ Submitted on: ${new Date().toLocaleString()}
           </div>
 
           <div className="mt-6">
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+            <label className="block text-sm font-medium text-gray-700 mb-3">
               Traffic Types *
             </label>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -306,7 +306,7 @@ Submitted on: ${new Date().toLocaleString()}
                     onChange={handleCheckboxChange}
                     className="mr-2 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                   />
-                  <span className="text-sm text-gray-700 dark:text-gray-300">{type}</span>
+                  <span className="text-sm text-gray-700">{type}</span>
                 </label>
               ))}
             </div>
